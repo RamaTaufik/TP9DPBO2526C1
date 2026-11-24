@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS `kandidat` (
   `nama` VARCHAR(100) NOT NULL,
   `posisi` VARCHAR(100) NOT NULL,
   `domisili` VARCHAR(100) NOT NULL,
-  `skorTes` INT(11) NOT NULL DEFAULT 0,
-  `pengalamanTahun` INT(11) NOT NULL DEFAULT 0,
+  `skor_tes` INT(11) NOT NULL DEFAULT 0,
+  `pengalaman_tahun` INT(11) NOT NULL DEFAULT 0,
   PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `jadwal_interview` (
   FOREIGN KEY(`kandidat_id`) REFERENCES `kandidat`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `kandidat`(`id`, `nama`, `posisi`, `domisili`, `skorTes`, `pengalamanTahun`) VALUES
+INSERT INTO `kandidat`(`id`, `nama`, `posisi`, `domisili`, `skor_tes`, `pengalaman_tahun`) VALUES
   (1, 'Raka Pratama', 'Backend Developer', 'Bandung', 92, 3),
   (2, 'Sinta Maharani', 'UI/UX Designer', 'Jakarta', 88, 2),
   (3, 'Dimas Nugroho', 'Data Analyst', 'Yogyakarta', 85, 1),
