@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__ . '/DB.php';
-require_once __DIR__ . '/KontrakModel.php';
+require_once __DIR__ . '/KontrakModelKandidat.php';
 require_once __DIR__ . '/Kandidat.php';
 
-class TabelKandidat extends DB implements KontrakModel {
+class TabelKandidat extends DB implements KontrakModelKandidat {
 
   public function __construct(
     string $host = NULL,

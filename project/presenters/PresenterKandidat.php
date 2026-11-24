@@ -1,13 +1,13 @@
 <?php
-require_once __DIR__ . '/KontrakPresenter.php';
-require_once __DIR__ . '/../models/KontrakModel.php';
+require_once __DIR__ . '/KontrakPresenterKandidat.php';
+require_once __DIR__ . '/../models/KontrakModelKandidat.php';
 require_once __DIR__ . '/../views/KontrakView.php';
 
-class PresenterKandidat implements KontrakPresenter {
-  private KontrakModel $model;
+class PresenterKandidat implements KontrakPresenterKandidat {
+  private KontrakModelKandidat $model;
   private KontrakView $view;
 
-  public function __construct(KontrakModel $model, KontrakView $view) {
+  public function __construct(KontrakModelKandidat $model, KontrakView $view) {
     $this->model = $model;
     $this->view = $view;
   }

@@ -26,6 +26,7 @@ class ViewKandidat implements KontrakView {
 
     $tokens = [
       '{{TITLE}}'         => 'Kandidat',
+      '{{PAGE}}'          => 'kandidat',
       '{{TABLE_HEADERS}}' => $tableHeaders,
       '{{TABLE_ROWS}}'    => $tableRowsHtml,
       '{{TOTAL_DATA}}'    => (string)$totalData,

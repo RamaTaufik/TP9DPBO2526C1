@@ -36,12 +36,17 @@
     .btn-edit{background:transparent;color:var(--accent);font-weight:600;}
     .btn-delete{background:transparent;color:var(--danger);font-weight:600;border:none;}
     .btn-add{background:var(--accent);color:#fff;font-weight:600;}
+    .btn-muted{background:transparent;border:1px solid var(--border);color:var(--muted);}
     .footer-bar{margin-top:16px;display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border);}
     tbody tr:hover td{background:rgba(37,99,235,0.02);}
   </style>
 </head>
 <body>
   <div class="container">
+    <div>
+      <a href="?page=kandidat" class="btn">Kandidat</a>
+      <a href="?page=jadwal_interview" class="btn">Jadwal Interview</a>
+    </div>
     <div class="card">
       <h1>Daftar {{TITLE}}</h1>
 
@@ -61,7 +66,7 @@
           Total {{TITLE}}: <strong style="color:#0f172a">{{TOTAL_DATA}}</strong>
         </div>
         <div>
-          <a href="index.php?screen=add" class="btn btn-add">+ Tambah {{TITLE}}</a>
+          <a href="index.php?page={{PAGE}}&screen=add" class="btn btn-add">+ Tambah {{TITLE}}</a>
         </div>
       </div>
     </div>

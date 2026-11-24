@@ -1,5 +1,5 @@
 <?php
-interface KontrakModel {
+interface KontrakModelKandidat {
   /**
    * Mengambil seluruh data kandidat sebagai array objek Kandidat.
    * @return Kandidat[]
