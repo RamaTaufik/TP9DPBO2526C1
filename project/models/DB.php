@@ -17,7 +17,7 @@ class DB {
   ) {
     $this->host = $host ?? Config::$db_host;
     $this->db_name = $db_name ?? Config::$db_name;
-    $this->username = $username ?? Config::$db_name;
+    $this->username = $username ?? Config::$db_user;
     $this->password = $password ?? Config::$db_pass;
     $this->conn = $this->connect();
   }
@@ -30,6 +30,7 @@ class DB {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false,
       ];
+
       return new PDO($dsn, $this->username, $this->password, $options);
     } catch (PDOException $e) {
       throw new RuntimeException("Koneksi Database Gagal: " . $e->getMessage(), 0, $e);
@@ -37,23 +38,26 @@ class DB {
   }
 
   public function executeQuery(string $query, array $params = []): PDOStatement {
-    if ($this->conn === null) {
+    if($this->conn === null) {
       throw new RuntimeException("Tidak ada koneksi database aktif.");
     }
+
     try {
       $stmt = $this->conn->prepare($query);
       $stmt->execute($params);
       $this->result = $stmt;
+
       return $stmt;
-    } catch (PDOException $e) {
+    } catch(PDOException $e) {
       throw new RuntimeException("Query Gagal: " . $e->getMessage(), 0, $e);
     }
   }
 
   public function getAllResult(): array {
-    if ($this->result === null) {
+    if($this->result === null) {
       return [];
     }
+
     return $this->result->fetchAll(PDO::FETCH_ASSOC);
   }
 

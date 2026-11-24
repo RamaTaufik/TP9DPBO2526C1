@@ -11,8 +11,8 @@ interface KontrakModel {
    */
   public function getKandidatById(int $id): ?Kandidat;
 
-  public function addKandidat(string $nama, string $posisi, string $domisili, int $skorTes, int $pengalamanTahun): void;
-  public function updateKandidat(int $id, string $nama, string $posisi, string $domisili, int $skorTes, int $pengalamanTahun): void;
+  public function addKandidat(string $nama, string $posisi, string $domisili, int $skor_tes, int $pengalaman_tahun): void;
+  public function updateKandidat(int $id, string $nama, string $posisi, string $domisili, int $skor_tes, int $pengalaman_tahun): void;
   public function deleteKandidat(int $id): void;
 }
 ?>

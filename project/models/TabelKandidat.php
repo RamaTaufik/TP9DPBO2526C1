@@ -20,13 +20,13 @@ class TabelKandidat extends DB implements KontrakModel {
       $row['nama'],
       $row['posisi'],
       $row['domisili'],
-      (int)$row['skorTes'],
-      (int)$row['pengalamanTahun']
+      (int)$row['skor_tes'],
+      (int)$row['pengalaman_tahun']
     );
   }
 
   public function getAllKandidat(): array {
-    $query = "SELECT * FROM kandidat ORDER BY skorTes DESC, id ASC";
+    $query = "SELECT * FROM kandidat ORDER BY skor_tes DESC, id ASC";
     $this->executeQuery($query);
     $rows = $this->getAllResult();
     $list = [];
@@ -50,16 +50,19 @@ class TabelKandidat extends DB implements KontrakModel {
     return $this->mapRowToKandidat($rows[0]);
   }
 
-  public function addKandidat(string $nama, string $posisi, string $domisili, int $skorTes, int $pengalamanTahun): void {
-    // TODO: Jalankan query INSERT INTO kandidat
+  public function addKandidat(string $nama, string $posisi, string $domisili, int $skor_tes, int $pengalaman_tahun): void {
+    $query = "INSERT INTO kandidat(`id`, `nama`, `posisi`, `domisili`, `skor_tes`, `pengalaman_tahun`) VALUES (NULL, ?, ?, ?, ?, ?)";
+    $this->executeQuery($query, [$nama, $posisi, $domisili, $skor_tes, $pengalaman_tahun]);
   }
 
-  public function updateKandidat(int $id, string $nama, string $posisi, string $domisili, int $skorTes, int $pengalamanTahun): void {
-    // TODO: Jalankan query UPDATE kandidat WHERE id = :id
+  public function updateKandidat(int $id, string $nama, string $posisi, string $domisili, int $skor_tes, int $pengalaman_tahun): void {
+    $query = "UPDATE kandidat SET `nama` = ?, `posisi` = ?, `domisili` = ?, `skor_tes` = ?, `pengalaman_tahun` = ? WHERE `id` = ?";
+    $this->executeQuery($query, [$nama, $posisi, $domisili, $skor_tes, $pengalaman_tahun, $id]);
   }
 
   public function deleteKandidat(int $id): void {
-    // TODO: Jalankan query DELETE FROM kandidat WHERE id = :id
+    $query = "DELETE FROM kandidat WHERE `id` = ?";
+    $this->executeQuery($query, [$id]);
   }
 }
 ?>

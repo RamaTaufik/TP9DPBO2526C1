@@ -53,13 +53,13 @@ class ViewKandidat implements KontrakView {
       </div>
 
       <div>
-        <label for="skorTes">Skor Tes (0-100)</label>
-        <input id="skorTes" name="skorTes" type="number" min="0" max="100" step="1" value="'.((string)($formData['skorTes'] ?? 0)).'">
+        <label for="skor_tes">Skor Tes (0-100)</label>
+        <input id="skor_tes" name="skor_tes" type="number" min="0" max="100" step="1" value="'.((string)($formData['skor_tes'] ?? 0)).'">
       </div>
 
       <div class="full">
-        <label for="pengalamanTahun">Pengalaman Kerja (Tahun)</label>
-        <input id="pengalamanTahun" name="pengalamanTahun" type="number" min="0" step="1" value="'.($formData['pengalamanTahun'] ?? 0).'">
+        <label for="pengalaman_tahun">Pengalaman Kerja (Tahun)</label>
+        <input id="pengalaman_tahun" name="pengalaman_tahun" type="number" min="0" step="1" value="'.($formData['pengalaman_tahun'] ?? 0).'">
       </div>
     ';
 
@@ -67,6 +67,7 @@ class ViewKandidat implements KontrakView {
       '{{FORM_TITLE}}'  => htmlspecialchars($title),
       '{{ACTION}}'      => htmlspecialchars($action),
       '{{ID}}'          => htmlspecialchars((string)($formData['id'] ?? '')),
+      '{{PAGE}}'        => 'kandidat',
       '{{FORM_INPUTS}}' => $formInputs
     ];
 
